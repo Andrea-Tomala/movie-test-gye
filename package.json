@@ -1,14 +1,12 @@
 {
   "name": "movie-test-gye",
   "version": "0.0.0",
-  "homepage": "https://Andrea-Tomala.github.io/movie-test-gye",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test",
-    "deploy": "npm run build && gh-pages -d dist/movie-test-gye"
+    "test": "ng test"
   },
   "private": true,
   "dependencies": {
