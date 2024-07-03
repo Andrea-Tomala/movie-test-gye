@@ -1,4 +1,59 @@
-img {
-  width: 300px;
+/* src/app/components/movie-details/movie-details.component.css */
+
+.movie-details-container {
+  text-align: center;
+  padding: 20px;
+}
+
+.movie-details-container h2 {
+  margin-bottom: 20px;
+}
+
+.movie-details-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.movie-poster {
+  flex: 1 1 300px; /* Crece hasta 300px y se reduce si es necesario */
+  text-align: center;
+  margin: 10px;
+}
+
+.movie-poster img {
+  max-width: 100%;
   height: auto;
+}
+
+.movie-info {
+  flex: 2 1 300px; /* Crece hasta 300px y se reduce si es necesario */
+  text-align: left;
+  margin: 10px;
+}
+
+.movie-info h3 {
+  margin-top: 20px;
+}
+
+.movie-info ul {
+  list-style: none;
+  padding: 0;
+}
+
+.movie-info li {
+  margin: 5px 0;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+  .movie-details-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .movie-info {
+    text-align: center;
+  }
 }

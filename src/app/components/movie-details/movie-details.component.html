@@ -1,13 +1,20 @@
 
-<div *ngIf="movie">
-  <img [src]="imageBaseUrl + movie.poster_path" alt="{{ movie.title }}">
+
+<div class="movie-details-container">
   <h2>{{ movie.title }}</h2>
-  <p>{{ movie.overview }}</p>
-  <h3>Cast</h3>
-  <ul>
-    <li *ngFor="let actor of actors">
-      {{ actor.name }} as {{ actor.character }}
-    </li>
-  </ul>
+  <div class="movie-details-content">
+    <div class="movie-poster">
+      <img [src]="imageBaseUrl + movie.poster_path" alt="{{ movie.title }}">
+    </div>
+    <div class="movie-info">
+      <p>{{ movie.overview }}</p>
+      <h3>Cast</h3>
+      <ul>
+        <li *ngFor="let actor of actors">
+          {{ actor.name }} as {{ actor.character }}
+        </li>
+      </ul>
+    </div>
+  </div>
 </div>
 
