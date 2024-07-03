@@ -1,0 +1,13 @@
+
+<div *ngIf="movie">
+  <img [src]="imageBaseUrl + movie.poster_path" alt="{{ movie.title }}">
+  <h2>{{ movie.title }}</h2>
+  <p>{{ movie.overview }}</p>
+  <h3>Cast</h3>
+  <ul>
+    <li *ngFor="let actor of actors">
+      {{ actor.name }} as {{ actor.character }}
+    </li>
+  </ul>
+</div>
+
