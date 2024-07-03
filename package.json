@@ -1,6 +1,7 @@
 {
   "name": "movie-test-gye",
   "version": "0.0.0",
+  "homepage": "https://Andrea-Tomala.github.io/movie-test-gye",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
