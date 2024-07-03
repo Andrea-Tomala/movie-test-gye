@@ -24,3 +24,8 @@ button.btn-principal{
     text-decoration: none;
     transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
+button.btn-principal:hover{
+  background-color: #790340;
+  border: 1px solid #790340;
+  transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}

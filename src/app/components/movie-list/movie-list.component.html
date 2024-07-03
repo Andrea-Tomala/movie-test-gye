@@ -18,6 +18,7 @@
 </div>
 
 <div class="pagination">
+  <button class="btn-principal" (click)="goToFirstPage()">First Page</button>
   <button class="btn-principal" (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>
   <button class="btn-principal" (click)="nextPage()">Next</button>
 </div>

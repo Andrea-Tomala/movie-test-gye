@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MovieService } from '../../services/movie.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-movie-list',
@@ -13,31 +13,56 @@ export class MovieListComponent implements OnInit {
   imageBaseUrl: string = 'https://image.tmdb.org/t/p/w500';
   currentPage: number = 1;
 
-  constructor(private movieService: MovieService, private router: Router) { }
+  constructor(private movieService: MovieService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.loadMovies();
+    this.route.queryParams.subscribe(params => {
+      const page = params['page'] ? +params['page'] : 1;
+      this.loadMovies(page);
+    });
   }
 
-  loadMovies(): void {
-    this.movieService.getPopularMovies(this.currentPage).subscribe(response => {
+  loadMovies(page: number): void {
+    this.movieService.getPopularMovies(page).subscribe(response => {
       // this.movies = response.results;
       this.movies = response.results.slice(0, 6);
+      this.currentPage = page;
+      this.movieService.currentPage = page;
     });
   }
 
   nextPage(): void {
-    this.currentPage++;
-    this.loadMovies();
+    //this.currentPage++;
+    this.movieService.currentPage++;
+    this.updateUrl();
+    this.loadMovies(this.movieService.currentPage);
   }
 
   previousPage(): void {
-    if (this.currentPage > 1) {
+  /*   if (this.currentPage > 1) {
       this.currentPage--;
-      this.loadMovies();
+      this.loadMovies(this.movieService.currentPage);
+    } */
+    if (this.movieService.currentPage > 1) {
+      this.movieService.currentPage--;
+      this.updateUrl();
+      this.loadMovies(this.movieService.currentPage);
     }
   }
 
+  goToFirstPage(): void {
+    this.movieService.currentPage = 1;
+    this.updateUrl();
+    this.loadMovies(this.movieService.currentPage);
+  }
+
+  private updateUrl(): void {
+    this.router.navigate([], {
+      relativeTo: this.route,
+      queryParams: { page: this.movieService.currentPage },
+      queryParamsHandling: 'merge'
+    });
+  }
 
   viewDetails(movieId: number): void {
     this.router.navigate(['/movie', movieId]);

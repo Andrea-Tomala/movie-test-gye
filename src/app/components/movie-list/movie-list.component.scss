@@ -5,7 +5,9 @@
   justify-content: center;
 }
 .details{
-  padding: 10px;
+  padding: 10px 20px;
+  height: 200px;
+  text-align: start;
 }
 .movie-item {
   width: 370px;
@@ -21,11 +23,17 @@
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
 }
-
+.movie-item:hover{
+  border-color: #BD0063;
+}
+.button-container{
+  margin-bottom: 20px;
+}
 .pagination {
   display: flex;
   justify-content: center;
   margin-top: 20px;
+  padding-bottom: 40px;
 }
 
 .pagination button {

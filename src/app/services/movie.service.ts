@@ -14,6 +14,7 @@ export class MovieService {
     'Authorization': this.authorization,
     'accept': 'application/json'
   });
+  public currentPage = 1; // Añadir variable para la página actual
 
   constructor(private http: HttpClient) { }
 
@@ -21,7 +22,7 @@ export class MovieService {
     return this.http.get<any>(`${this.apiUrl}/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc?api_key=${this.api_key}`,
       { headers: this.headers });
   } */
-  getPopularMovies(page: number = 1): Observable<any> {
+  getPopularMovies(page: number): Observable<any> {
     return this.http.get<any>(`${this.apiUrl}/discover/movie?include_adult=false&include_video=false&language=en-US&page=${page}&sort_by=popularity.desc?api_key=${this.api_key}`, { headers: this.headers });
   }
 

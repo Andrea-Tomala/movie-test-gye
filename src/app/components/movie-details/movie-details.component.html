@@ -1,10 +1,12 @@
 
 
-<div class="movie-details-container">
+<div class="movie-details-container" >
   <h2>{{ movie.title }}</h2>
   <div class="movie-details-content">
-    <div class="movie-poster">
-      <img [src]="imageBaseUrl + movie.poster_path" alt="{{ movie.title }}">
+    <div class="movie-poster-container">
+      <div class="movie-poster-wrapper">
+        <img #moviePoster [src]="imageBaseUrl + movie.poster_path" alt="{{ movie.title }}">
+      </div>
     </div>
     <div class="movie-info">
       <p>{{ movie.overview }}</p>
@@ -14,7 +16,15 @@
           {{ actor.name }} as {{ actor.character }}
         </li>
       </ul>
+
+      <div>
+        <button class="btn-principal btn-margin" (click)="backPage()" >Regresar</button>
+      </div>
     </div>
+
+
+
+
   </div>
 </div>
 
