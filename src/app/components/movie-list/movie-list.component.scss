@@ -1,4 +1,6 @@
-
+h1{
+  color: #BD0063;
+}
 .movie-list {
   display: flex;
   flex-wrap: wrap;
@@ -15,6 +17,7 @@
   text-align: center;
   border: 1px solid gray;
   border-radius: 8px;
+  background-color: white;
 }
 
 .movie-item img {
@@ -27,7 +30,9 @@
   border-color: #BD0063;
 }
 .button-container{
-  margin-bottom: 20px;
+  display: flex;
+  justify-content: flex-start;
+  margin:0px 20px 20px 20px;
 }
 .pagination {
   display: flex;

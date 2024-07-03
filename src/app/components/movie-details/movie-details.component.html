@@ -12,8 +12,11 @@
       <p>{{ movie.overview }}</p>
       <h3>Cast</h3>
       <ul>
+
         <li *ngFor="let actor of actors">
-          {{ actor.name }} as {{ actor.character }}
+          <span class="material-symbols-outlined">
+            check_circle
+            </span> {{ actor.name }} as {{ actor.character }}
         </li>
       </ul>
 
