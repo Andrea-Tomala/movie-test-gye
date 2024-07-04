@@ -151,8 +151,12 @@ a.text-succes{
 .search-container {
   position: relative;
   display: flex;
-  max-width: 400px;
+  align-items: center;
+  max-width: 360px;
+  height: 48px;
   margin: 0 auto;
+  border-radius: 8px;
+  padding: 16px 0px;
 }
 
 .search-label {
@@ -160,42 +164,37 @@ a.text-succes{
   top: 50%;
   left: 10px;
   transform: translateY(-50%);
+  display: flex;
+  align-items: center;
   color: #999;
-  pointer-events: none; /* Evita que la etiqueta interfiera con la interacción del input */
-  transition: transform 0.3s ease, font-size 0.3s ease, color 0.3s ease;
+}
+
+.search-label i {
+  margin-right: 8px;
 }
 
 .search-input {
   flex: 1;
-  padding: 10px;
+  padding: 10px 40px 10px 30px; /* Ajusta el padding para dejar espacio para el ícono */
   font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 4px 0 0 4px;
+  border: none;
+  border-radius: 4px;
   outline: none;
-  position: relative; /* Asegura que la etiqueta sea absoluta respecto a este input */
-  z-index: 1; /* Asegura que el input esté encima de la etiqueta */
+
+  &::placeholder {
+    color: #999; /* Color del texto del placeholder */
+    font-size: 0.9rem; /* Tamaño de fuente del placeholder */
+    font-style: italic; /* Estilo de la fuente del placeholder */
+    opacity: 0.8; /* Opacidad del texto del placeholder */
+  }
 }
 
-.search-input:focus + .search-label,
-.search-input:not(:placeholder-shown) + .search-label {
-  transform: translateY(-150%) scale(0.8);
-  font-size: 0.8rem;
+.search-input:focus + .search-label {
   color: #666;
 }
 
-.search-button {
-  background-color: #d2006e;
-  color: #fff;
-  border: none;
-  border-radius: 0 4px 4px 0;
-  padding: 10px 15px;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: background-color 0.3s ease;
-
-  &:hover {
-    background-color: #790340;
-  }
+.fa-search {
+  color: #999; /* Color del icono */
 }
 
 
