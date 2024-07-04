@@ -186,6 +186,16 @@ a.text-succes{
     font-size: 0.9rem; /* Tamaño de fuente del placeholder */
     font-style: italic; /* Estilo de la fuente del placeholder */
     opacity: 0.8; /* Opacidad del texto del placeholder */
+    padding-left: 10px;
+  }
+  &:active {
+    border: 1px solid $colorGrayActive;
+  }
+  &:focus {
+    outline: none;
+    gap: 0px;
+    border: 2px solid $colorPrimaryFocus;
+    opacity: 0px;
   }
 }
 

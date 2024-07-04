@@ -38,4 +38,8 @@ h1{
 
 .contenedor-search{
   background-color: $colorGray;
+  display: flex;
+  justify-content: flex-end;
+  margin: 0 auto;
+  padding: 20px;
 }
