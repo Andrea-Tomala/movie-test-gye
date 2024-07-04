@@ -25,7 +25,7 @@ export class MovieListComponent implements OnInit {
   loadMovies(page: number): void {
     this.movieService.getPopularMovies(page).subscribe(response => {
       // this.movies = response.results;
-      this.movies = response.results.slice(0, 6);
+      this.movies = response.results.slice(0, 8);
       this.currentPage = page;
       this.movieService.currentPage = page;
     });

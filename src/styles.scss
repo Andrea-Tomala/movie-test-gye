@@ -1,7 +1,43 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; background-color: #2A2E45; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+//colores
+$colorPrimary: #d2006e;
+$colorWhite: #ffffff;
+$colorGray: #ededed;
+$colorGrayActive: #d0d0d0;
+$colorPrimaryFocus: #7e0042;
+$colorPrimaryHover: #bd0063;
+$colorPrimaryPressed: #93004d;
+$colorSuccesBackground: #f2fcf5;
+$colorSucces: #24A148;
+$colorBlack: #121212;
+$colorDisabled: #F9F9F9;
+$colorTextDisabled: #D0D0D0;
+
+
+html,
+body {
+  height: 100%;
+  background-color: $colorWhite;
+}
+body {
+  margin: 0;
+  font-family: "Nunito Sans", sans-serif;
+  color: $colorBlack;
+}
+
+h3{
+  font-size: 22px;
+  font-weight: 600;
+  margin-top: 10px;
+  margin-bottom: 8px;
+}
+p{
+  margin: 8px 0px;
+  font-size: 15px;
+}
+
+
 
 .container {
   padding: 0px 15px;
@@ -9,23 +45,158 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   text-align: center;
 }
 
-button.btn-principal{
+button.btn-principal {
+  display: flex;
+  align-items: center;
+  width: 95px;
+  height: 56px;
+  justify-content: center;
   cursor: pointer;
-    background-color: #d2006e;
-    border: 1px solid #d2006e;
-    border-radius: .25rem;
-    color: #fff;
-    display: inline-block;
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
-    padding: .375rem .75rem;
-    text-align: center;
-    text-decoration: none;
-    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+  background-color: $colorPrimary;
+  border: 1px solid $colorPrimary;
+  border-radius: 8px;
+  padding: 16px;
+  color: $colorWhite;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: center;
+  text-decoration: none;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  &:hover {
+    background-color: $colorPrimaryHover;
+    border: 1px solid $colorPrimaryHover;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+      border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
+
+  &:focus {
+    outline: none; /* Elimina el contorno predeterminado (opcional, dependiendo del diseño) */
+    box-shadow: 0 0 0 2px $colorWhite, 0 0 0 5px $colorPrimaryFocus; /* Borde exterior más oscuro y espacio blanco */
+  }
+
+  &:active {
+    background-color: $colorPrimaryPressed;
+    border: 1px solid $colorPrimaryPressed;
+  }
+  &:disabled{
+    background-color: $colorDisabled;
+    color: $colorTextDisabled;
+    border: none;
+  }
 }
-button.btn-principal:hover{
-  background-color: #790340;
-  border: 1px solid #790340;
-  transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+
+//cards
+.cards-movie-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 328px;
+  height: 449px;
+  margin: 12px;
+  text-align: center;
+  border: 1px solid $colorGray;
+  border-radius: 8px;
+  box-shadow: 2px 4px 12px 0px #00000005, -2px -4px 12px 0px #00000005;
+  background-color: $colorWhite;
+
+  &:hover {
+    width: 333px;
+    height: 452px;
+    box-shadow: 4px 6px 18px 0px #00000008, -4px -6px 18px 0px #00000008;
+    border: 1px solid $colorGrayActive;
+  }
+
+  &:active {
+    width: 333px;
+    height: 452px;
+    box-shadow: 4px 6px 18px 0px #00000008, -4px -6px 18px 0px #00000008;
+    border: 1px solid $colorGrayActive;
+  }
+  &:focus {
+    outline: none;
+    width: 334px;
+    height: 455.21px;
+    gap: 0px;
+    border-radius: 10px;
+    border: 2px solid $colorPrimaryFocus;
+    opacity: 0px;
+  }
 }
+
+.cards-movie-item img {
+  width: 100%;
+  height: 175px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+//text success
+a.text-succes{
+  width: 37px;
+  height: 25px;
+  padding: 8px;
+  border-radius: 8px;
+  opacity: 0px;
+  text-decoration: none;
+  color: $colorSucces;
+  background-color: $colorSuccesBackground;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+//input
+
+.search-container {
+  position: relative;
+  display: flex;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.search-label {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  color: #999;
+  pointer-events: none; /* Evita que la etiqueta interfiera con la interacción del input */
+  transition: transform 0.3s ease, font-size 0.3s ease, color 0.3s ease;
+}
+
+.search-input {
+  flex: 1;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px 0 0 4px;
+  outline: none;
+  position: relative; /* Asegura que la etiqueta sea absoluta respecto a este input */
+  z-index: 1; /* Asegura que el input esté encima de la etiqueta */
+}
+
+.search-input:focus + .search-label,
+.search-input:not(:placeholder-shown) + .search-label {
+  transform: translateY(-150%) scale(0.8);
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.search-button {
+  background-color: #d2006e;
+  color: #fff;
+  border: none;
+  border-radius: 0 4px 4px 0;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #790340;
+  }
+}
+
+
+

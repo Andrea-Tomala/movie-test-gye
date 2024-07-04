@@ -1,5 +1,6 @@
+@import "../../../styles.scss";
 h1{
-  color: #BD0063;
+  color: $colorPrimary;
 }
 .movie-list {
   display: flex;
@@ -8,27 +9,10 @@ h1{
 }
 .details{
   padding: 10px 20px;
-  height: 200px;
+  height: 138px;
   text-align: start;
 }
-.movie-item {
-  width: 370px;
-  margin: 20px;
-  text-align: center;
-  border: 1px solid gray;
-  border-radius: 8px;
-  background-color: white;
-}
 
-.movie-item img {
-  width: 100%;
-  height: auto;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
-}
-.movie-item:hover{
-  border-color: #BD0063;
-}
 .button-container{
   display: flex;
   justify-content: flex-start;
